@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"; 
 
 export default function LocationFinderClient() {
-    const [locationInfo, setLocationInfo] = useState(1);
+    const [locationInfo, setLocationInfo] = useState({City: 'N/A'});
 
     const getLocationInfo = async () => {
         const response = await fetch('https://apip.cc/json');
@@ -18,7 +18,7 @@ export default function LocationFinderClient() {
 
     return (
         <>
-            <h1>Hello from {locationInfo?.City} - client component</h1>
+            <h1>Hello from {locationInfo.City} - client component</h1>
         </>
     )
 }
