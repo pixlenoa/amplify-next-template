@@ -25,7 +25,6 @@ export default function RootLayout({
 import React from "react";
 import { Amplify } from "aws-amplify";
 import "./app.css";
-import AuthenticatorWrapper from "./AuthenticatorWrapper";
 import "@aws-amplify/ui-react/styles.css";
 import outputs from "@/amplify_outputs.json";
 
@@ -39,9 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>      
-        <AuthenticatorWrapper>
           {children}
-        </AuthenticatorWrapper>
       </body>
     </html>
   );
