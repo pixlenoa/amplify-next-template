@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react"; 
 
 export default function LocationFinderClient() {
-    const [locationInfo, setLocationInfo] = useState({City: 'Loading...', RegionName: ''});
-    const [temperature, setTemperature] = useState('Loading...');
+    const [locationInfo, setLocationInfo] = useState({City: 'N/A', RegionName: 'N/A'});
+    const [temperature, setTemperature] = useState('N/A');
+    const [loading, setLoading] = useState(true);
 
     const getLocationInfo = async () => {
         const locationResponse = await fetch('https://apip.cc/json');
@@ -19,6 +20,7 @@ export default function LocationFinderClient() {
             setTemperature(weatherData.dataseries[0].temp2m);
         }
         
+        setLoading(false);
         console.log(weatherData);
     }
 
@@ -29,8 +31,8 @@ export default function LocationFinderClient() {
     return (
         <>
             <h3 style={{marginBottom: ".1em"}}>client component</h3>
-            <h1 style={{marginTop: ".1em", marginBottom: ".5em"}}>Hello from {locationInfo.City}, {locationInfo.RegionName}</h1>
-            <h2 style={{marginTop: ".1em"}}>Current Temperature: {temperature} °C</h2>
+            <h1 style={{marginTop: ".1em", marginBottom: ".5em"}}>Hello from {loading ? "Loading..." : `${locationInfo.City}, ${locationInfo.RegionName}`}</h1>
+            <h2 style={{marginTop: ".1em"}}>Current Temperature: {loading ? "Loading..." : `${temperature} °C`}</h2>
         </>
     )
 
