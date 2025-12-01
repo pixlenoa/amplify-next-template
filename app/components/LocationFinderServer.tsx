@@ -13,7 +13,7 @@ export default async function LocationFinderServer() {
     return (
         <>
             <h3 style={{marginTop: "2em", marginBottom: ".1em"}}>server component</h3>
-            <h1 style={{marginTop: ".1em", marginBottom: ".5em"}}>Hello from {locationInfo?.City}</h1>
+            <h1 style={{marginTop: ".1em", marginBottom: ".5em"}}>Hello from {locationInfo?.City}, {locationInfo?.RegionName}</h1>
             <h2 style={{marginTop: ".1em"}}>Current Temperature: {weatherInfo.dataseries[0].temp2m} °C</h2>
         </>
     )

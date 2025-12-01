@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"; 
 
 export default function LocationFinderClient() {
-    const [locationInfo, setLocationInfo] = useState({City: 'Loading...'});
+    const [locationInfo, setLocationInfo] = useState({City: 'Loading...', RegionName: ''});
     const [temperature, setTemperature] = useState('Loading...');
 
     const getLocationInfo = async () => {
@@ -29,7 +29,7 @@ export default function LocationFinderClient() {
     return (
         <>
             <h3 style={{marginBottom: ".1em"}}>client component</h3>
-            <h1 style={{marginTop: ".1em", marginBottom: ".5em"}}>Hello from {locationInfo.City}</h1>
+            <h1 style={{marginTop: ".1em", marginBottom: ".5em"}}>Hello from {locationInfo.City}, {locationInfo.RegionName}</h1>
             <h2 style={{marginTop: ".1em"}}>Current Temperature: {temperature} °C</h2>
         </>
     )
